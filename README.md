@@ -6,7 +6,7 @@
 [![Debezium CDC](https://img.shields.io/badge/PostgreSQL-CDC%20Source%20V2-336791?logo=postgresql)](https://docs.confluent.io/cloud/current/connectors/cc-postgresql-cdc-source-v2-debezium/cc-postgresql-cdc-source-v2-debezium.html)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
-> Built for the **Confluent AI-Focused Hackathon**.  
+
 > PulseGuard AI is **NOT** a chatbot. It is a production-grade, event-driven streaming intelligence platform that continuously observes customer behavior, detects churn risk in sub-seconds to seconds, synthesizes personalized interventions with Claude AI, and executes governed retention workflows through a human-in-the-loop authorization gate.
 
 ---
