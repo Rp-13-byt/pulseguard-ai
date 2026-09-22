@@ -1,0 +1,19 @@
+{
+  "name": "pulseguard-zendesk",
+  "config": {
+    "connector.class": "ZendeskSource",
+    "name": "pulseguard-zendesk",
+    "kafka.auth.mode": "SERVICE_ACCOUNT",
+    "kafka.service.account.id": "sa-pulseguard-connectors",
+    "zendesk.url": "https://YOUR_SUBDOMAIN.zendesk.com",
+    "zendesk.auth.type": "basic",
+    "zendesk.user": "your-email@example.com/token",
+    "zendesk.password": "${file:/secrets.properties:ZENDESK_API_TOKEN}",
+    "zendesk.tables": "tickets,ticket_audits,users,organizations",
+    "topic.name.pattern": "pulseguard.zendesk.${entityName}",
+    "output.data.format": "JSON_SR",
+    "output.key.format": "JSON",
+    "request.interval.ms": "15000",
+    "tasks.max": "1"
+  }
+}

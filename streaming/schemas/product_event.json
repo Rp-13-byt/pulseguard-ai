@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProductEvent",
+  "description": "Real-time user telemetry and product interaction event",
+  "type": "object",
+  "properties": {
+    "event_id": { "type": "string" },
+    "customer_id": { "type": "integer" },
+    "event_time": { "type": "string" },
+    "event_type": { "type": "string", "enum": ["LOGIN", "FEATURE_USE", "SESSION_START", "EXPORT_DATA", "INVITE_USER", "SETTINGS_CHANGE"] },
+    "feature": { "type": "string" },
+    "session_minutes": { "type": "number" },
+    "success": { "type": "boolean" },
+    "metadata": { "type": "object" }
+  },
+  "required": ["event_id", "customer_id", "event_time", "event_type"]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@pulseguard/domain",
+  "version": "1.0.0",
+  "description": "Shared domain models, deterministic scoring formulas, and policy rules for PulseGuard AI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Domain types checked\""
+  },
+  "keywords": ["pulseguard", "domain", "streaming"],
+  "author": "PulseGuard Engineering Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

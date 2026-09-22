@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer",
+  "description": "Operational customer profile stream from PostgreSQL CDC",
+  "type": "object",
+  "properties": {
+    "customer_id": { "type": "integer", "description": "Unique customer ID" },
+    "first_name": { "type": "string", "confluent:tags": ["PII"] },
+    "last_name": { "type": "string", "confluent:tags": ["PII"] },
+    "email": { "type": "string", "format": "email", "confluent:tags": ["PII"] },
+    "plan": { "type": "string", "enum": ["FREE", "STARTER", "PRO", "ENTERPRISE"] },
+    "country": { "type": "string" },
+    "signup_date": { "type": "string" },
+    "monthly_value": { "type": "number", "confluent:tags": ["FINANCIAL"] },
+    "last_login_at": { "type": "string" },
+    "lifecycle_status": { "type": "string", "enum": ["ACTIVE", "WATCH", "AT_RISK", "CRITICAL", "CHURNED"] }
+  },
+  "required": ["customer_id", "first_name", "last_name", "email", "plan", "monthly_value"]
+}

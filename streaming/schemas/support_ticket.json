@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SupportTicket",
+  "description": "Zendesk customer support ticket with AI perception sentiment tags",
+  "type": "object",
+  "properties": {
+    "ticket_id": { "type": "integer" },
+    "customer_id": { "type": "integer" },
+    "created_at": { "type": "string" },
+    "subject": { "type": "string" },
+    "message": { "type": "string", "confluent:tags": ["SENSITIVE"] },
+    "sentiment": { "type": "string", "enum": ["POSITIVE", "NEUTRAL", "NEGATIVE", "URGENT_NEGATIVE"], "confluent:tags": ["SENSITIVE"] },
+    "sentiment_score": { "type": "number" },
+    "urgency": { "type": "string", "enum": ["LOW", "NORMAL", "HIGH", "URGENT"] },
+    "issue_category": { "type": "string", "enum": ["BILLING", "PERFORMANCE", "BUG", "INTEGRATION", "CANCELLATION_REQUEST"] },
+    "status": { "type": "string", "enum": ["OPEN", "PENDING", "SOLVED", "CLOSED"] }
+  },
+  "required": ["ticket_id", "customer_id", "created_at", "subject", "message", "sentiment", "urgency"]
+}

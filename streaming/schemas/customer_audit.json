@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CustomerAudit",
+  "description": "Immutable compliance and governance audit event recording state changes, AI proposals, and human actions",
+  "type": "object",
+  "properties": {
+    "audit_id": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "customer_id": { "type": "integer" },
+    "actor_type": { "type": "string", "enum": ["SYSTEM", "AI", "HUMAN", "CONNECTOR", "FLINK"] },
+    "actor_id": { "type": "string" },
+    "action": { "type": "string" },
+    "previous_state": { "type": "string" },
+    "new_state": { "type": "string" },
+    "risk_event_id": { "type": "string" },
+    "policy_version": { "type": "string" },
+    "model_version": { "type": "string" },
+    "approval_required": { "type": "boolean" },
+    "approval_status": { "type": "string", "enum": ["PENDING", "APPROVED", "EXECUTED", "REJECTED"] },
+    "reason": { "type": "string" }
+  },
+  "required": ["audit_id", "timestamp", "customer_id", "actor_type", "actor_id", "action", "new_state", "policy_version", "reason"]
+}

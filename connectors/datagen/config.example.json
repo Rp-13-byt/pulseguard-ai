@@ -1,0 +1,15 @@
+{
+  "name": "pulseguard-datagen",
+  "config": {
+    "connector.class": "DatagenSource",
+    "name": "pulseguard-datagen",
+    "kafka.auth.mode": "SERVICE_ACCOUNT",
+    "kafka.service.account.id": "sa-pulseguard-connectors",
+    "kafka.topic": "pulseguard.demo.activity",
+    "output.data.format": "JSON_SR",
+    "quickstart": "CLICKSTREAM",
+    "max.interval": "1000",
+    "iterations": "-1",
+    "tasks.max": "1"
+  }
+}

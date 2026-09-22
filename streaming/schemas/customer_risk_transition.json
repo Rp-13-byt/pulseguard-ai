@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CustomerRiskTransition",
+  "description": "Trigger stream for significant churn risk state transitions requiring AI evaluation",
+  "type": "object",
+  "properties": {
+    "transition_id": { "type": "string" },
+    "customer_id": { "type": "integer" },
+    "previous_score": { "type": "integer" },
+    "new_score": { "type": "integer" },
+    "previous_level": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] },
+    "new_level": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] },
+    "score_delta": { "type": "integer" },
+    "trigger_reason": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "requires_ai_intervention": { "type": "boolean" }
+  },
+  "required": ["transition_id", "customer_id", "previous_score", "new_score", "previous_level", "new_level", "trigger_reason", "timestamp", "requires_ai_intervention"]
+}

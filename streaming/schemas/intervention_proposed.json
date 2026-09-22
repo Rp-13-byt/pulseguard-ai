@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProposedIntervention",
+  "description": "Governed retention intervention formulated by Claude AI inference with strict policy boundaries",
+  "type": "object",
+  "properties": {
+    "intervention_id": { "type": "string" },
+    "customer_id": { "type": "integer" },
+    "risk_event_id": { "type": "string" },
+    "transition_id": { "type": "string" },
+    "risk_score": { "type": "integer" },
+    "risk_level": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] },
+    "recommended_action": { "type": "string" },
+    "channel": { "type": "string", "enum": ["EMAIL", "SLACK", "IN_APP", "CRM", "PHONE"] },
+    "priority": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "URGENT"] },
+    "offer_type": { "type": "string", "enum": ["NONE", "DISCOUNT_10", "DISCOUNT_20", "EXECUTIVE_CALL", "PRIORITY_SUPPORT", "TRAINING_SESSION", "FEATURE_PREVIEW"] },
+    "discount_percent": { "type": "number", "minimum": 0, "maximum": 50 },
+    "message": { "type": "string" },
+    "reasoning": { "type": "string" },
+    "requires_human_approval": { "type": "boolean" },
+    "policy_name": { "type": "string" },
+    "status": { "type": "string", "enum": ["PENDING", "APPROVED", "EXECUTED", "REJECTED"] },
+    "confidence": { "type": "number" },
+    "risk_model_version": { "type": "string" },
+    "policy_version": { "type": "string" },
+    "ai_model": { "type": "string" },
+    "prompt_version": { "type": "string" },
+    "schema_version": { "type": "integer" },
+    "idempotency_key": { "type": "string" },
+    "created_at": { "type": "string" }
+  },
+  "required": [
+    "intervention_id", "customer_id", "risk_score", "risk_level",
+    "recommended_action", "channel", "message", "requires_human_approval",
+    "policy_name", "status", "idempotency_key", "created_at"
+  ]
+}

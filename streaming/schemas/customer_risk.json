@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CustomerRisk",
+  "description": "Deterministic churn risk score and point-by-point explainability breakdown calculated by Apache Flink",
+  "type": "object",
+  "properties": {
+    "risk_event_id": { "type": "string" },
+    "customer_id": { "type": "integer" },
+    "risk_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "risk_level": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] },
+    "breakdown": {
+      "type": "object",
+      "properties": {
+        "usage_decline_pts": { "type": "integer" },
+        "order_inactivity_pts": { "type": "integer" },
+        "negative_sentiment_pts": { "type": "integer" },
+        "unresolved_tickets_pts": { "type": "integer" },
+        "renewal_proximity_pts": { "type": "integer" },
+        "customer_value_pts": { "type": "integer" },
+        "total_score": { "type": "integer" }
+      },
+      "required": ["total_score"]
+    },
+    "reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "mrr_exposed": { "type": "number", "confluent:tags": ["FINANCIAL"] },
+    "risk_weighted_mrr": { "type": "number", "confluent:tags": ["FINANCIAL"] },
+    "timestamp": { "type": "string" },
+    "processing_version": { "type": "string" }
+  },
+  "required": ["risk_event_id", "customer_id", "risk_score", "risk_level", "breakdown", "reasons", "timestamp"]
+}

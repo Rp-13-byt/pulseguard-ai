@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Order",
+  "description": "Customer order transaction stream",
+  "type": "object",
+  "properties": {
+    "order_id": { "type": "integer" },
+    "customer_id": { "type": "integer" },
+    "order_time": { "type": "string" },
+    "amount": { "type": "number", "confluent:tags": ["FINANCIAL"] },
+    "product_category": { "type": "string" },
+    "status": { "type": "string", "enum": ["COMPLETED", "CANCELLED", "REFUNDED", "FAILED"] }
+  },
+  "required": ["order_id", "customer_id", "order_time", "amount", "status"]
+}

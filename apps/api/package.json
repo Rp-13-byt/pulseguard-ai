@@ -1,0 +1,28 @@
+{
+  "name": "@pulseguard/api",
+  "version": "1.0.0",
+  "description": "PulseGuard AI Backend API, Kafka Consumer, Action Security Gate, and SSE Streamer",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "test": "ts-node tests/scoring.test.ts"
+  },
+  "dependencies": {
+    "@pulseguard/domain": "*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "kafkajs": "^2.2.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

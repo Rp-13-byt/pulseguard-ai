@@ -1,0 +1,40 @@
+{
+  "name": "pulseguard-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PulseGuard AI — Real-Time Customer Retention & Personalization Agent for Confluent Cloud and Apache Flink",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "build:domain": "npm run build --workspace=@pulseguard/domain",
+    "build:api": "npm run build --workspace=@pulseguard/api",
+    "build:web": "npm run build --workspace=@pulseguard/web",
+    "start:api": "npm run start --workspace=@pulseguard/api",
+    "dev:api": "npm run dev --workspace=@pulseguard/api",
+    "dev:web": "npm run dev --workspace=@pulseguard/web",
+    "dev": "npm run dev:api",
+    "test": "npm run test --workspaces --if-present",
+    "test:golden-path": "npx ts-node scripts/test-golden-path.ts",
+    "setup:topics": "npx ts-node scripts/setup-topics.ts",
+    "health-check": "npx ts-node scripts/health-check.ts"
+  },
+  "keywords": [
+    "confluent",
+    "kafka",
+    "apache-flink",
+    "cdc",
+    "debezium",
+    "ai-agent",
+    "customer-retention",
+    "stream-processing"
+  ],
+  "author": "PulseGuard Engineering Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

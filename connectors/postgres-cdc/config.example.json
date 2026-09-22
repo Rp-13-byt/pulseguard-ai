@@ -1,0 +1,26 @@
+{
+  "name": "pulseguard-postgres-cdc",
+  "config": {
+    "connector.class": "PostgresCdcSourceV2",
+    "name": "pulseguard-postgres-cdc",
+    "kafka.auth.mode": "SERVICE_ACCOUNT",
+    "kafka.service.account.id": "sa-pulseguard-connectors",
+    "database.hostname": "YOUR_POSTGRES_RDS_OR_CLOUD_HOST",
+    "database.port": "5432",
+    "database.user": "confluent_cdc",
+    "database.password": "${file:/secrets.properties:POSTGRES_PASSWORD}",
+    "database.dbname": "retentiondb",
+    "database.sslmode": "require",
+    "database.server.name": "pulseguard",
+    "topic.prefix": "pulseguard.cdc",
+    "slot.name": "pulseguard_slot",
+    "publication.name": "retention_publication",
+    "publication.autocreate.mode": "filtered",
+    "table.include.list": "public.customers,public.orders,public.product_events,public.subscriptions",
+    "snapshot.mode": "initial",
+    "output.data.format": "JSON_SR",
+    "output.key.format": "JSON",
+    "tasks.max": "1",
+    "tombstones.on.delete": "true"
+  }
+}
